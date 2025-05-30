@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/7b86a805-18c0-4429-ac3d-821b82e99d2f)# Smart Farm – BeagleBone Black + Yocto
+# Smart Farm – BeagleBone Black + Yocto
 
 This project is a smart farming demo running on BeagleBone Black, built using Yocto Project. It features light and humidity sensing, an LCD display, and a custom Qt GUI.
 
