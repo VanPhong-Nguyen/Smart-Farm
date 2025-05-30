@@ -10,8 +10,11 @@ This project is a smart farming demo running on BeagleBone Black, built using Yo
 - GUI: Qt for Embedded Linux
 - Build System: Yocto Project (custom layer)
 
+### System Architecture
 ![System Diagram](images/Architectural_system.png)
-
+---
+### Software Architecture
+![Software architecture](images/Software_architecture.png)
 ---
 
 ## 🔧 Components
@@ -28,13 +31,8 @@ This project is a smart farming demo running on BeagleBone Black, built using Yo
 - Written in C++ using QtWidgets
 
 ### 4. Yocto Integration
-- Custom layer: `meta-smartfarm/`
+- Custom layer: `meta-openembedded/` `meta-qt5/`
 - Bitbake recipe includes drivers and Qt app
 
 ---
 
-1. Clone and init Yocto build:
-```bash
-git clone https://github.com/yourname/smart-farm
-cd smart-farm/yocto/
-# Setup Yocto build with meta-smartfarm
