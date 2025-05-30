@@ -23,14 +23,16 @@ This project is a smart farming demo running on BeagleBone Black, built using Yo
 - `bh1750.c` – Reads light intensity via I2C
 - `sht30.c` – Reads temperature & humidity via I2C
 
-### 2. Display Driver
-- `ili9341_driver.c` – Controls the TFT LCD over SPI
+### 2. Display 
+- Define SPI bus then configure pinctrl in device tree
+- Configure pinctrl in device tree
+- Porting ILI9341 LCD to support DRM
 
 ### 3. Qt UI
-- Building and Installing Qt SDK
 - Using Qt SDK with Qt Creator
 
 ### 4. Yocto Integration
+- Building and Installing Qt SDK
 - Custom layer: `meta-openembedded/` `meta-qt5/`
 - Bitbake recipe includes drivers and Qt app
 
