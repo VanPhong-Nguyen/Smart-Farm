@@ -190,8 +190,19 @@
 			AM33XX_PADCONF(AM335X_PIN_MCASP0_AHCLKX, PIN_OUTPUT_PULLUP, MUX_MODE7)	/* gpio, reset,	OUTPUT_PULLUP | MODE07	*/			
 		>;
 	};
-
-	
+	bb_spi0_pins: pinmux_bb_spi0_pins {
+	pinctrl-single,pins = <
+			AM33XX_PADCONF(AM335X_PIN_SPI0_SCLK, PIN_INPUT_PULLUP, MUX_MODE0)	/* spi0_sclk,  INPUT_PULLUP | MODE0, 	P9_22 */	
+			AM33XX_PADCONF(AM335X_PIN_SPI0_D0,   PIN_OUTPUT_PULLUP, MUX_MODE0)	/* spi0_d0,    INPUT_PULLUP | MODE0, 	P9_21 */		
+			AM33XX_PADCONF(AM335X_PIN_SPI0_D1,   PIN_INPUT_PULLUP, MUX_MODE0)	/* spi0_d1,    OUTPUT_PULLUP | MODE0, 	P9_18 */	
+			AM33XX_PADCONF(AM335X_PIN_SPI0_CS0,  PIN_OUTPUT_PULLUP, MUX_MODE0)	/* spi0_cs0,   OUTPUT_PULLUP | MODE0, 	P9_17 */
+		>;
+	};
+	bb_touchscreen_pins: pinmux_bb_touchscreen_pins {
+		pinctrl-single,pins = <
+			AM33XX_PADCONF(AM335X_PIN_GPMC_A1,  PIN_INPUT_PULLUP, MUX_MODE7)	/* gpmc_a1,   OUTPUT_PULLUP | MODE0, 	P9_23 */
+		>;
+	};	
 };
 
 &i2c1 {
@@ -218,3 +229,39 @@
 		status = "okay";
 	};
 };
+&spi0 {
+	#address-cells = <1>;
+	#size-cells = <0>;
+
+	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&bb_spi0_pins>;
+	ti,pindir-d0-out-d1-in = <1>;
+
+	touchscreen@0 {
+		compatible = "ti,ads7846";
+		spi-max-frequency = <100000>;   			
+		interrupts = <17 IRQ_TYPE_EDGE_FALLING>;             
+		interrupt-parent = <&gpio1>;
+		pendown-gpio = <&gpio1 17 0>;      
+		reg = <0>;
+		#addr-size = <2>;
+		#page-size = <32>;
+		pinctrl-names = "default";
+    	       pinctrl-0 = <&bb_touchscreen_pins>;
+
+		/* driver defaults */
+		ti,x-min = /bits/ 16 <0xB0>;
+		ti,y-min = /bits/ 16 <0x231>;
+		ti,x-max = /bits/ 16 <0xF49>;
+		ti,y-max = /bits/ 16 <0xF6B>;
+		ti,pressure-min = /bits/ 16 <0>;
+		ti,pressure-max = /bits/ 16 <0xFF>;
+		ti,x-plate-ohms = /bits/ 16 <0x96>;
+		ti,swap_xy = /bits/ 16 <0>;
+		ti,keep_vref_on = /bits/ 16 <0>;
+		ti,cs = /bits/ 16 <1>;
+		linux,wakeup;
+	};
+};
+
