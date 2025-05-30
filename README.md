@@ -28,7 +28,7 @@ This project is a smart farming demo running on BeagleBone Black, built using Yo
 
 ### 3. Qt UI
 - GUI interface shows real-time sensor data
-- Written in C++ using QtWidgets
+- Using Qt Creator
 
 ### 4. Yocto Integration
 - Custom layer: `meta-openembedded/` `meta-qt5/`
