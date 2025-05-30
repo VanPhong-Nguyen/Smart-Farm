@@ -1,4 +1,4 @@
-# Smart Farm – BeagleBone Black + Yocto
+![image](https://github.com/user-attachments/assets/7b86a805-18c0-4429-ac3d-821b82e99d2f)# Smart Farm – BeagleBone Black + Yocto
 
 This project is a smart farming demo running on BeagleBone Black, built using Yocto Project. It features light and humidity sensing, an LCD display, and a custom Qt GUI.
 
@@ -27,8 +27,8 @@ This project is a smart farming demo running on BeagleBone Black, built using Yo
 - `ili9341_driver.c` – Controls the TFT LCD over SPI
 
 ### 3. Qt UI
-- GUI interface shows real-time sensor data
-- Using Qt Creator
+- Building and Installing Qt SDK
+- Using Qt SDK with Qt Creator
 
 ### 4. Yocto Integration
 - Custom layer: `meta-openembedded/` `meta-qt5/`
