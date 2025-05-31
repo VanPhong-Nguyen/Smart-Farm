@@ -26,7 +26,7 @@ This project is a smart farming demo running on BeagleBone Black, built using Yo
 ### 2. Display 
 - Define SPI bus then configure pinctrl in device tree
 - Configure pinctrl in device tree
-- Porting ILI9341 LCD to support DRM
+- Porting ILI9341 LCD to support tinydrm_ili9341 driver
 
 ### 3. Qt UI
 - Using Qt SDK with Qt Creator
